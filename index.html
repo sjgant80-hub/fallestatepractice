@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>◊ FallEstatePractice · sovereign UK estate + letting agent firm accounting · CMP · deposits · rent · PI</title>
+<meta name="description" content="Sovereign firm-side accounting for UK estate + letting agents · Client Money Protection daily reconciliation · rent collection · deposit handling (TDS/DPS/mydeposits) · contractor payments · landlord disbursements · agency fees · sales commission · per-adviser P&L · firm P&L · PI/CMP/AML accruals. Single HTML, IDB primary, MIT.">
+<meta name="prime" content="911">
+<meta name="theme-color" content="#0b0a0f">
+<link rel="manifest" href='data:application/manifest+json,{"name":"FallEstatePractice","short_name":"estate-practice","start_url":"./","display":"standalone","background_color":"%230b0a0f","theme_color":"%23b8974a","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 192 192%27><rect width=%27192%27 height=%27192%27 fill=%27%230b0a0f%27 rx=%2828%27/><text x=%2796%27 y=%27140%27 font-family=%27Georgia, serif%27 font-size=%27122%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27%23b8974a%27>%E2%97%8A</text></svg>","sizes":"192x192","type":"image/svg+xml"}]}'>
+<style>
+:root{
+  --void:#0b0a0f;--void-2:#13121a;--ink:#1a1922;--ink-2:#22212c;
+  --line:#2a2934;--line-soft:#1f1e28;
+  --cream:#e6e1d6;--cream-dim:#a8a395;--cream-muted:#6e6a5e;
+  --brass:#b8974a;--amber:#ff8c00;--ox:#8b1a1a;
+  --green:#4ade80;--red:#ef4444;--blue:#60a5fa;--yellow:#fbbf24;
+  --serif:Georgia,'Libre Baskerville',ui-serif,serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',ui-monospace,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--void);color:var(--cream);font:14px/1.55 var(--sans);min-height:100dvh;-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer;background:transparent;border:none;color:inherit}
+input,textarea,select{font-family:inherit;background:var(--ink);border:1px solid var(--line);color:var(--cream);border-radius:3px;padding:7px 10px;outline:none;font-size:13px}
+input:focus,textarea:focus,select:focus{border-color:var(--brass)}
+input[type=number]{font-family:var(--mono)}
+a{color:var(--brass)} a:hover{color:var(--amber)}
+.app{min-height:100dvh;display:grid;grid-template-rows:48px 1fr}
+header{display:flex;align-items:center;border-bottom:1px solid var(--line);background:var(--void-2);user-select:none}
+.brand{display:flex;align-items:center;gap:10px;padding:0 16px;height:100%;border-right:1px solid var(--line)}
+.brand .mark{width:28px;height:28px;background:linear-gradient(135deg,var(--brass),var(--amber));border-radius:5px;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:16px;color:var(--void)}
+.brand .name{font-family:var(--serif);font-weight:600;font-size:14px;letter-spacing:0.02em}
+.brand .seal{font-family:var(--mono);font-size:9px;color:var(--cream-muted);letter-spacing:0.18em;text-transform:uppercase}
+nav.tabs{display:flex;flex:1;overflow-x:auto;align-items:stretch}
+nav.tabs button{padding:0 14px;font-size:12px;color:var(--cream-dim);letter-spacing:0.04em;display:flex;align-items:center;gap:6px;border-right:1px solid var(--line-soft);height:100%;white-space:nowrap;border-top:2px solid transparent}
+nav.tabs button:hover{background:var(--ink);color:var(--cream)}
+nav.tabs button.active{background:var(--ink);color:var(--brass);border-top-color:var(--brass)}
+.tools-r{display:flex;align-items:center;gap:5px;padding:0 14px;height:100%;border-left:1px solid var(--line)}
+.tool-btn{padding:5px 11px;border-radius:3px;font-size:11px;color:var(--cream-dim);letter-spacing:0.06em;text-transform:uppercase;font-family:var(--mono);border:1px solid var(--line)}
+.tool-btn:hover{background:var(--ink);color:var(--cream);border-color:var(--brass)}
+.tool-btn.primary{background:var(--brass);color:var(--void);border-color:var(--brass);font-weight:600}
+.tool-btn.primary:hover{background:var(--amber);border-color:var(--amber)}
+.tool-btn.t3{border-color:var(--blue);color:var(--blue)}
+main{padding:18px 22px 60px;overflow-y:auto;max-width:1240px;margin:0 auto;width:100%}
+.disclaimer{background:rgba(139,26,26,0.15);border:1px solid var(--ox);border-left:3px solid var(--ox);border-radius:3px;padding:12px 16px;margin-bottom:18px;font-size:12px;color:var(--cream)}
+.disclaimer strong{color:var(--brass)}
+.section-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;gap:14px;flex-wrap:wrap}
+.section-h h2{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:0.01em}
+.section-h .sub{font-family:var(--mono);font-size:11px;color:var(--cream-muted);letter-spacing:0.08em;text-transform:uppercase}
+.section-h .actions{display:flex;gap:6px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:14px}
+.card{background:var(--void-2);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.card h3{font-family:var(--serif);font-size:14px;font-weight:600;margin-bottom:10px;color:var(--cream);letter-spacing:0.01em}
+.card h3 .meta{font-family:var(--mono);font-size:10px;color:var(--brass);letter-spacing:0.1em;margin-left:8px}
+.kpi{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line-soft);font-size:13px}
+.kpi:last-child{border-bottom:none}
+.kpi .l{color:var(--cream-dim)} .kpi .v{font-family:var(--mono);color:var(--cream);font-weight:500}
+.kpi .v.green{color:var(--green)}.kpi .v.red{color:var(--red)}.kpi .v.amber{color:var(--amber)}.kpi .v.brass{color:var(--brass)}.kpi .v.blue{color:var(--blue)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px}
+.field label{display:block;font-family:var(--mono);font-size:10px;color:var(--cream-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px}
+.field input,.field select,.field textarea{width:100%}
+.field .hint{font-size:10px;color:var(--cream-muted);margin-top:3px;font-family:var(--mono)}
+.btn{padding:7px 14px;border:1px solid var(--brass);border-radius:3px;font-size:12px;color:var(--cream);background:transparent;letter-spacing:0.04em;cursor:pointer}
+.btn:hover{border-color:var(--amber);color:var(--amber)}
+.btn.primary{background:var(--brass);color:var(--void);border-color:var(--brass);font-weight:600}
+.btn.primary:hover{background:var(--amber);border-color:var(--amber);color:var(--void)}
+.btn.danger:hover{border-color:var(--red);color:var(--red)}
+.btn.sm{padding:4px 9px;font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top}
+th{color:var(--brass);font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+td.r{text-align:right;font-family:var(--mono)}
+td.mono{font-family:var(--mono);font-size:12px}
+tr.total td{font-weight:600;border-top:1px solid var(--brass);border-bottom:none;padding-top:10px}
+tr.total td.r{color:var(--brass)}
+tr.clickable{cursor:pointer}
+tr.clickable:hover td{background:var(--ink)}
+.bar{height:6px;background:var(--ink);border-radius:3px;overflow:hidden;margin:6px 0}
+.bar > div{height:100%;background:var(--brass);transition:width 0.3s}
+.bar > div.green{background:var(--green)}.bar > div.red{background:var(--red)}.bar > div.amber{background:var(--amber)}
+.tag{display:inline-block;padding:2px 7px;border-radius:11px;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--brass);color:var(--brass);margin-right:4px;white-space:nowrap}
+.tag.amber{border-color:var(--amber);color:var(--amber)}
+.tag.green{border-color:var(--green);color:var(--green)}
+.tag.red{border-color:var(--red);color:var(--red)}
+.tag.blue{border-color:var(--blue);color:var(--blue)}
+.tag.muted{border-color:var(--cream-muted);color:var(--cream-muted)}
+.empty{padding:24px;text-align:center;color:var(--cream-muted);font-style:italic;font-size:12px}
+.chat{display:flex;flex-direction:column;gap:10px;max-height:60vh;overflow-y:auto;padding:6px}
+.msg{padding:10px 14px;border-radius:6px;max-width:88%;font-size:13px;line-height:1.55;white-space:pre-wrap}
+.msg.user{background:var(--ink);align-self:flex-end;border-bottom-right-radius:2px}
+.msg.bot{background:var(--void-2);border:1px solid var(--line);border-left:2px solid var(--brass);align-self:flex-start;border-bottom-left-radius:2px}
+.msg.bot .src{font-family:var(--mono);font-size:10px;color:var(--cream-muted);letter-spacing:0.08em;margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+.chat-input{display:flex;gap:8px;margin-top:10px}
+.chat-input input{flex:1;padding:11px 14px}
+.palette-bg,.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:flex-start;justify-content:center;padding-top:14vh;z-index:900;backdrop-filter:blur(4px)}
+.palette-bg.open,.modal-bg.open{display:flex}
+.modal-bg{align-items:center;padding:18px}
+.palette{background:var(--void-2);border:1px solid var(--brass);border-radius:5px;width:min(640px,90%);box-shadow:0 18px 50px rgba(0,0,0,0.7);overflow:hidden}
+.palette-hd{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center}
+.palette-hd .glyph{font-family:var(--serif);font-size:18px;color:var(--brass)}
+.palette-hd input{flex:1;border:none;background:transparent;font-size:15px;padding:4px}
+.palette-bd{max-height:50vh;overflow:auto;padding:8px}
+.modal{background:var(--void-2);border:1px solid var(--brass);border-radius:4px;padding:22px;max-width:760px;width:100%;max-height:90vh;overflow:auto}
+.modal h2{font-family:var(--serif);font-size:17px;margin-bottom:14px}
+.modal .actions{display:flex;gap:8px;margin-top:16px;justify-content:flex-end;flex-wrap:wrap}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--brass);color:var(--void);padding:9px 18px;border-radius:3px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;opacity:0;transition:all 0.22s;z-index:1100;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.barchart{display:flex;align-items:flex-end;gap:8px;height:140px;padding:8px 0;border-bottom:1px solid var(--line-soft);margin-bottom:8px}
+.barchart .b{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.barchart .b .bar2{width:100%;min-height:2px;display:flex;flex-direction:column-reverse;border-radius:2px;overflow:hidden}
+.barchart .b .seg{width:100%;min-height:1px}
+.barchart .b .lab{font-family:var(--mono);font-size:9px;color:var(--cream-muted);letter-spacing:0.06em;text-transform:uppercase;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:100%}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--cream-dim);margin-top:6px}
+.legend .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.checklist{list-style:none;padding:0}
+.checklist li{padding:6px 0;border-bottom:1px dashed var(--line-soft);font-size:13px;display:flex;align-items:flex-start;gap:8px}
+.checklist li:last-child{border-bottom:none}
+.checklist li input{margin-top:3px}
+@media (max-width:760px){nav.tabs button{padding:0 11px;font-size:11px}main{padding:14px 14px 50px}.row,.row3{grid-template-columns:1fr}.grid,.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand">
+    <div class="mark">◊</div>
+    <div><div class="name">FallEstatePractice</div></div>
+    <div class="seal">v1 · prime 911</div>
+  </div>
+  <nav class="tabs" id="tabNav"></nav>
+  <div class="tools-r">
+    <button class="tool-btn primary" onclick="openPalette()" title="ask · Ctrl+K">◊ ask</button>
+    <button class="tool-btn" id="tierBadge" onclick="openModal('settings')">T0</button>
+    <button class="tool-btn" onclick="openModal('settings')">cog</button>
+  </div>
+</header>
+<main id="view"></main>
+</div>
+<div class="palette-bg" id="palette">
+  <div class="palette">
+    <div class="palette-hd">
+      <span class="glyph">◊</span>
+      <input type="text" id="pInput" placeholder="ask · 'CMP daily reconciliation?' · 'TDS vs DPS?' · '30-day deposit rule?'">
+      <span id="pTier" style="font-family:var(--mono);font-size:10px;color:var(--cream-muted)">T0</span>
+    </div>
+    <div class="palette-bd" id="pBody"></div>
+  </div>
+</div>
+<div class="modal-bg" id="modal">
+  <div class="modal"><h2 id="modalTitle">.</h2><div id="modalBody"></div></div>
+</div>
+<div class="toast" id="toast">.</div>
+
+<script>
+'use strict';
+// ════════════════════════════════════════════════════════════════
+// FallEstatePractice v1.0.0 · sovereign UK estate + letting agent firm accounting · MIT
+// ◊·κ=1 · prime 911 · CMP · deposits · rent · contractor · landlord disbursement · PI
+// TOOL · NOT REGULATED ADVICE · CMP scheme membership + HMRC AML supervision remain firm's responsibility
+// ════════════════════════════════════════════════════════════════
+const TOOLNAME='fallestatepractice';
+const VERSION='1.0.0';
+const PRIME=911;
+const STORE='fallestatepractice-v1';
+const TAX_YEAR='2025-26';
+
+// UK estate + letting agent rule constants (calibrated 2025-26)
+const RULES={
+  vatStandard:0.20,
+  vatRegThreshold:90000,
+  cmpAmberDays:3,                    // daily reconciliation expected; amber after 3d
+  cmpRedDays:7,                       // red after 7d (legal failure exposure)
+  depositProtectDays:30,             // Housing Act 2004 · 30 days from receipt
+  depositAmberDay:14,
+  depositRedDay:25,
+  rentArrearsAmberDays:7,
+  rentArrearsRedDays:14,
+  s8Ground8Days:60,                  // 2 months / 8 weeks for ground 8 rent arrears
+  piMinSingleClaim:100000,           // typical CMP scheme minimum (PropertyMark: £100k+)
+  cmpAnnualScheme:300,               // typical CMP scheme membership annual fee
+  hmrcAmlPerPremise:300,             // HMRC AML supervision fee per premise (~£300)
+  propertyMarkAnnual:280,            // ARLA Propertymark typical annual
+  annualInspectionMonths:12,         // CMP independent inspection cadence
+  pencePerPound:100,
+};
+
+const TABS=[
+  {id:'dashboard',label:'◊ dashboard'},
+  {id:'cmp',label:'CMP'},
+  {id:'rent',label:'rent'},
+  {id:'deposits',label:'deposits'},
+  {id:'contractors',label:'contractors'},
+  {id:'landlord',label:'landlord'},
+  {id:'fees',label:'fees'},
+  {id:'sales',label:'sales'},
+  {id:'properties',label:'properties'},
+  {id:'tenancies',label:'tenancies'},
+  {id:'clients',label:'clients'},
+  {id:'advisers',label:'agents'},
+  {id:'firm-pl',label:'firm P&L'},
+  {id:'expenses',label:'expenses'},
+  {id:'qa',label:'Q&A'},
+];
+
+let state={
+  active:'dashboard',
+  selectedClientId:null,
+  selectedAdviserId:null,
+  selectedPropertyId:null,
+  selectedTenancyId:null,
+  firm:null,
+  clients:[],
+  advisers:[],
+  properties:[],
+  tenancies:[],
+  clientMoney:[],          // killer feature: per-property/tenancy in/out
+  rentLedger:[],           // {tenancyId, dueDate, paidDate, amount, arrears}
+  deposits:[],             // {tenancyId, scheme, amount, receivedAt, protectedAt, prescribedInfoServedAt}
+  contractors:[],          // {propertyId, contractor, scope, quote, paidAt, paidFrom, vat}
+  landlordDisbursements:[],// {landlordId, monthKey, rentCollected, agencyFees, maintenance, vat, netToLandlord}
+  agencyFees:[],           // {propertyId, tenancyId, type:setup|monthly|renewal|checkout, structure:fixed|pct, amount}
+  salesCommission:[],      // {propertyId, agreedPct, salePrice, paidAt, deductions}
+  expenses:[],
+  chat:[],
+  audit:[],
+  settings:{
+    anthropicKey:'',geminiKey:'',openaiKey:'',openrouterKey:'',
+    auditChain:true,
+    piAnnualPremium:0,
+    cmpSchemeAnnual:300,
+    hmrcAmlAnnual:300,
+    propertyMarkAnnual:280,
+    bankDetails:'',
+    cmpScheme:'PropertyMark',
+    cmpSchemeRef:'',
+    lastInspectionAt:null,
+    demoLoaded:false,
+  },
+};
+
+// ─── util ───
+const $=(s,p=document)=>p.querySelector(s);
+const $$=(s,p=document)=>Array.from(p.querySelectorAll(s));
+const uid=p=>(p||'')+Math.random().toString(36).slice(2,11);
+const now=()=>Date.now();
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=n=>(+n||0).toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:0});
+const money=n=>'£'+fmt(n);
+const moneyP=n=>'£'+(+n||0).toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2});
+const pct=n=>((+n||0)*100).toFixed(1)+'%';
+const isoDate=ts=>new Date(ts||Date.now()).toISOString().slice(0,10);
+const monthKey=ts=>new Date(ts||Date.now()).toISOString().slice(0,7);
+const dayMs=86400000;
+const daysBetween=(a,b)=>Math.floor((b-a)/dayMs);
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),1900)}
+async function sha256(s){const buf=new TextEncoder().encode(String(s));const h=await crypto.subtle.digest('SHA-256',buf);return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('')}
+
+// ─── IDB ───
+let db;
+const STORES=['state','clients','advisers','firms','properties','tenancies','clientMoney','rentLedger','deposits','contractors','landlordDisbursements','agencyFees','salesCommission','expenses','audit'];
+function openDB(){return new Promise((res,rej)=>{
+  const r=indexedDB.open(STORE,1);
+  r.onupgradeneeded=e=>{const d=e.target.result;for(const s of STORES){if(!d.objectStoreNames.contains(s)){d.createObjectStore(s,{keyPath:'id'})}}};
+  r.onsuccess=e=>{db=e.target.result;res(db)};
+  r.onerror=()=>rej(r.error);
+});}
+function txStore(name,mode='readonly'){const tx=db.transaction(name,mode);return tx.objectStore(name)}
+function idbPut(store,val){return new Promise(r=>{const req=txStore(store,'readwrite').put(val);req.onsuccess=()=>r(true);req.onerror=()=>r(false)})}
+function idbDel(store,key){return new Promise(r=>{const req=txStore(store,'readwrite').delete(key);req.onsuccess=()=>r(true)})}
+function idbGetAll(store){return new Promise(r=>{const req=txStore(store).getAll();req.onsuccess=()=>r(req.result||[]);req.onerror=()=>r([])})}
+function idbGet(store,key){return new Promise(r=>{const req=txStore(store).get(key);req.onsuccess=()=>r(req.result);req.onerror=()=>r(null)})}
+
+async function appendAudit(action,reasoning,payload){
+  if(!state.settings.auditChain)return;
+  const prev=state.audit.length?state.audit[state.audit.length-1]:null;
+  const prevHash=prev?prev.hash:'';
+  const docStr=JSON.stringify(payload||{});
+  const docHash=await sha256(docStr);
+  const i=(prev?prev.i:0)+1;
+  const ts=Date.now();
+  const hash=await sha256(prevHash+docHash+ts+i);
+  const entry={id:'au_'+i+'_'+ts,i,ts,tool:TOOLNAME,configVersion:TOOLNAME+'@'+VERSION,adviserId:'',clientId:payload?.clientId||'',action,reasoning:reasoning||'',prevHash,docHash,hash,payload:payload||{}};
+  state.audit.push(entry);
+  if(state.audit.length>5000)state.audit=state.audit.slice(-5000);
+  await idbPut('audit',entry);
+}
+
+async function saveState(){
+  await idbPut('state',{id:'singleton',active:state.active,selectedClientId:state.selectedClientId,selectedAdviserId:state.selectedAdviserId,selectedPropertyId:state.selectedPropertyId,selectedTenancyId:state.selectedTenancyId,settings:state.settings,chat:state.chat});
+}
+async function loadAll(){
+  await openDB();
+  const s=await idbGet('state','singleton');
+  if(s){state.active=s.active||state.active;state.selectedClientId=s.selectedClientId||null;state.selectedAdviserId=s.selectedAdviserId||null;state.selectedPropertyId=s.selectedPropertyId||null;state.selectedTenancyId=s.selectedTenancyId||null;state.settings=Object.assign({},state.settings,s.settings||{});state.chat=s.chat||[]}
+  state.clients=await idbGetAll('clients');
+  state.advisers=await idbGetAll('advisers');
+  const firms=await idbGetAll('firms');state.firm=firms[0]||null;
+  state.properties=await idbGetAll('properties');
+  state.tenancies=await idbGetAll('tenancies');
+  state.clientMoney=await idbGetAll('clientMoney');
+  state.rentLedger=await idbGetAll('rentLedger');
+  state.deposits=await idbGetAll('deposits');
+  state.contractors=await idbGetAll('contractors');
+  state.landlordDisbursements=await idbGetAll('landlordDisbursements');
+  state.agencyFees=await idbGetAll('agencyFees');
+  state.salesCommission=await idbGetAll('salesCommission');
+  state.expenses=await idbGetAll('expenses');
+  state.audit=await idbGetAll('audit');
+  try{const ls=localStorage.getItem(STORE+'.settings');if(ls&&!s){state.settings=Object.assign({},state.settings,JSON.parse(ls))}}catch(e){}
+}
+function persistSettingsLS(){try{localStorage.setItem(STORE+'.settings',JSON.stringify(state.settings))}catch(e){}}
+
+// ─── BroadcastChannel mesh ───
+let bcEstate,bcSignal;
+function initMesh(){
+  try{bcSignal=new BroadcastChannel('fall-signal');bcSignal.postMessage({source:TOOLNAME,type:'hello',prime:PRIME,version:VERSION,ts:now()})}catch(e){}
+  try{bcEstate=new BroadcastChannel('fall-estate');bcEstate.addEventListener('message',async e=>{
+    const m=e.data;if(!m||m.source===TOOLNAME)return;
+    if(m.type==='sync.snapshot'){
+      const p=m.payload||{};
+      if(Array.isArray(p.clients))for(const c of p.clients){if(!state.clients.find(x=>x.id===c.id)){state.clients.push(c);await idbPut('clients',c);}}
+      if(p.firm&&!state.firm){state.firm=p.firm;await idbPut('firms',p.firm);}
+      render();
+    }
+  });bcEstate.postMessage({v:1,type:'sync.request',ts:now(),source:TOOLNAME})}catch(e){}}
+function broadcastUpdate(type,payload){try{if(bcEstate&&state.settings.autoBroadcast!==false)bcEstate.postMessage({v:1,type,source:TOOLNAME,ts:now(),payload})}catch(e){}}
+
+// ─── helpers ───
+function clientName(id){const c=state.clients.find(x=>x.id===id);if(!c)return id?(id.slice(0,8)+'…'):'—';return ((c.title||'')+' '+(c.firstName||'')+' '+(c.lastName||'')).trim()||c.id.slice(0,8)}
+function propAddr(id){const p=state.properties.find(x=>x.id===id);return p?p.address:'—'}
+function adviserName(id){const a=state.advisers.find(x=>x.id===id);return a?a.name:id?(id.slice(0,8)+'…'):'—'}
+function depositDaysLeft(dep){if(dep.protectedAt)return null;return RULES.depositProtectDays-daysBetween(dep.receivedAt,now())}
+function depositStatus(dep){if(dep.protectedAt)return {cls:'green',label:'protected'};const d=depositDaysLeft(dep);if(d<=0)return {cls:'red',label:'OVERDUE'};if(d<=RULES.depositAmberDay)return {cls:'amber',label:d+'d left'};return {cls:'muted',label:d+'d left'}}
+function tenancyLabel(id){const t=state.tenancies.find(x=>x.id===id);if(!t)return '—';return propAddr(t.propertyId)+' · '+clientName(t.tenantId)}
+
+// ─── aggregation ───
+function totalRentCollected(mk){return state.rentLedger.filter(r=>monthKey(r.paidDate)===mk&&r.paidDate).reduce((s,r)=>s+(+r.amount||0),0)}
+function totalRentDue(mk){return state.rentLedger.filter(r=>monthKey(r.dueDate)===mk).reduce((s,r)=>s+(+r.amount||0),0)}
+function totalArrears(){return state.rentLedger.filter(r=>!r.paidDate&&r.dueDate<now()).reduce((s,r)=>s+(+r.amount||0),0)}
+function totalArrearsCount(){return state.rentLedger.filter(r=>!r.paidDate&&r.dueDate<now()).length}
+function totalContractorPaid(mk){return state.contractors.filter(c=>c.paidAt&&monthKey(c.paidAt)===mk).reduce((s,c)=>s+(+c.amount||0),0)}
+function totalAgencyFees(mk){return state.agencyFees.filter(f=>monthKey(f.date||now())===mk).reduce((s,f)=>s+(+f.amount||0),0)}
+function totalSalesComm(mk){return state.salesCommission.filter(c=>c.paidAt&&monthKey(c.paidAt)===mk).reduce((s,c)=>s+((+c.salePrice||0)*(+c.agreedPct||0)/100),0)}
+function totalExpenses(mk){return state.expenses.filter(x=>monthKey(x.date)===mk).reduce((s,x)=>s+(+x.amount||0),0)}
+function totalLandlordDisbursed(mk){return state.landlordDisbursements.filter(d=>d.monthKey===mk).reduce((s,d)=>s+(+d.netToLandlord||0),0)}
+function grossRevenue(mk){return totalAgencyFees(mk)+totalSalesComm(mk)}
+function netRevenue(mk){return grossRevenue(mk)-totalExpenses(mk)}
+function cmpBalance(){return state.clientMoney.reduce((s,e)=>s+((e.direction==='in'?1:-1)*(+e.amount||0)),0)}
+function unprotectedDeposits(){return state.deposits.filter(d=>!d.protectedAt)}
+function overdueDeposits(){return state.deposits.filter(d=>!d.protectedAt&&(now()-d.receivedAt)>RULES.depositProtectDays*dayMs)}
+
+// ─── CMP daily reconciliation ───
+function cmpLastReconciled(){const recs=state.clientMoney.filter(e=>e.type==='reconciliation');if(!recs.length)return null;return Math.max(...recs.map(e=>e.date))}
+function cmpDaysSinceRecon(){const lr=cmpLastReconciled();if(!lr)return 999;return daysBetween(lr,now())}
+function cmpStatus(){const d=cmpDaysSinceRecon();if(d<=1)return {cls:'green',label:'current'};if(d<=RULES.cmpAmberDays)return {cls:'amber',label:d+'d ago'};return {cls:'red',label:d+'d — overdue'}}
+
+// ─── RENDER ───
+function render(){renderTabs();const v=$('#view');switch(state.active){
+  case 'dashboard':return renderDashboard(v);case 'cmp':return renderCMP(v);case 'rent':return renderRent(v);
+  case 'deposits':return renderDeposits(v);case 'contractors':return renderContractors(v);case 'landlord':return renderLandlord(v);
+  case 'fees':return renderFees(v);case 'sales':return renderSales(v);case 'properties':return renderProperties(v);
+  case 'tenancies':return renderTenancies(v);case 'clients':return renderClients(v);case 'advisers':return renderAdvisers(v);
+  case 'firm-pl':return renderFirmPL(v);case 'expenses':return renderExpenses(v);case 'qa':return renderQA(v);}}
+function renderTabs(){$('#tabNav').innerHTML=TABS.map(t=>`<button class="${state.active===t.id?'active':''}" onclick="switchTab('${t.id}')">${t.label}</button>`).join('')}
+function switchTab(id){state.active=id;saveState();render();}
+
+// ─── DASHBOARD ───
+function renderDashboard(v){
+  const mk=monthKey();const cs=cmpStatus();const ta=totalArrears();const ud=unprotectedDeposits();const od=overdueDeposits();
+  const gr=grossRevenue(mk);const nr=netRevenue(mk);
+  v.innerHTML=`<div class="disclaimer"><strong>◊ Regulatory notice:</strong> FallEstatePractice models UK estate and letting agent accounting including Client Money Protection (CMP). CMP scheme membership, HMRC AML supervision, and redress scheme membership are the firm's responsibility. This tool does not replace your accountant. Data never leaves this device.</div>
+  <div class="section-h"><h2>Dashboard</h2><div class="sub">${mk} · prime ${PRIME}</div></div>
+  <div class="grid">
+    <div class="card"><h3>CMP status <span class="meta tag ${cs.cls}">${cs.label}</span></h3>
+      <div class="kpi"><span class="l">client money balance</span><span class="v brass">${moneyP(cmpBalance())}</span></div>
+      <div class="kpi"><span class="l">last reconciliation</span><span class="v ${cs.cls}">${cmpLastReconciled()?isoDate(cmpLastReconciled()):'never'}</span></div>
+      <div class="kpi"><span class="l">unprotected deposits</span><span class="v ${ud.length?'red':'green'}">${ud.length}</span></div>
+      <div class="kpi"><span class="l">overdue (>30d)</span><span class="v ${od.length?'red':'green'}">${od.length}</span></div>
+    </div>
+    <div class="card"><h3>Rent <span class="meta">${mk}</span></h3>
+      <div class="kpi"><span class="l">due</span><span class="v">${moneyP(totalRentDue(mk))}</span></div>
+      <div class="kpi"><span class="l">collected</span><span class="v green">${moneyP(totalRentCollected(mk))}</span></div>
+      <div class="kpi"><span class="l">in arrears</span><span class="v ${ta>0?'red':'green'}">${moneyP(ta)} (${totalArrearsCount()})</span></div>
+    </div>
+    <div class="card"><h3>Revenue <span class="meta">${mk}</span></h3>
+      <div class="kpi"><span class="l">agency fees</span><span class="v">${moneyP(totalAgencyFees(mk))}</span></div>
+      <div class="kpi"><span class="l">sales commission</span><span class="v">${moneyP(totalSalesComm(mk))}</span></div>
+      <div class="kpi"><span class="l">gross revenue</span><span class="v brass">${moneyP(gr)}</span></div>
+      <div class="kpi"><span class="l">expenses</span><span class="v red">${moneyP(totalExpenses(mk))}</span></div>
+      <div class="kpi"><span class="l">net</span><span class="v ${nr>=0?'green':'red'}">${moneyP(nr)}</span></div>
+    </div>
+    <div class="card"><h3>Portfolio</h3>
+      <div class="kpi"><span class="l">properties</span><span class="v">${state.properties.length}</span></div>
+      <div class="kpi"><span class="l">active tenancies</span><span class="v">${state.tenancies.filter(t=>t.status==='active').length}</span></div>
+      <div class="kpi"><span class="l">landlord clients</span><span class="v">${state.clients.filter(c=>c.clientType==='landlord').length}</span></div>
+      <div class="kpi"><span class="l">agents</span><span class="v">${state.advisers.length}</span></div>
+    </div>
+  </div>
+  <div class="section-h" style="margin-top:22px"><h2>Compliance Checklist</h2></div>
+  <div class="card" style="max-width:780px"><ul class="checklist">
+    <li><input type="checkbox" ${state.firm?'checked':''}> Firm details entered</li>
+    <li><input type="checkbox" ${state.settings.cmpSchemeRef?'checked':''}> CMP scheme registered (${esc(state.settings.cmpScheme||'—')})</li>
+    <li><input type="checkbox" ${cmpDaysSinceRecon()<=1?'checked':''}> CMP daily reconciliation current</li>
+    <li><input type="checkbox" ${od.length===0?'checked':''}> All deposits protected within 30 days</li>
+    <li><input type="checkbox" ${state.settings.piAnnualPremium>0?'checked':''}> PI insurance current</li>
+    <li><input type="checkbox" ${state.settings.hmrcAmlAnnual>0?'checked':''}> HMRC AML supervision registered</li>
+    <li><input type="checkbox" ${state.firm?.redressScheme?'checked':''}> Property redress scheme membership</li>
+  </ul></div>`;
+}
+
+// ─── CMP ───
+function renderCMP(v){
+  const cs=cmpStatus();const bal=cmpBalance();const entries=state.clientMoney.sort((a,b)=>b.date-a.date);
+  v.innerHTML=`<div class="section-h"><h2>Client Money Protection</h2><div class="actions"><button class="btn brass sm" onclick="openModal('cmpEntry')">+ entry</button><button class="btn primary sm" onclick="cmpReconcile()">reconcile</button></div></div>
+  <div class="grid" style="margin-bottom:18px">
+    <div class="card"><h3>Balance</h3><div class="kpi"><span class="l">current balance</span><span class="v brass">${moneyP(bal)}</span></div><div class="kpi"><span class="l">status</span><span class="v"><span class="tag ${cs.cls}">${cs.label}</span></span></div></div>
+    <div class="card"><h3>Scheme</h3><div class="kpi"><span class="l">scheme</span><span class="v">${esc(state.settings.cmpScheme||'—')}</span></div><div class="kpi"><span class="l">ref</span><span class="v">${esc(state.settings.cmpSchemeRef||'—')}</span></div></div>
+  </div>
+  ${entries.length?`<table><thead><tr><th>Date</th><th>Direction</th><th>Type</th><th>Amount</th><th>Ref</th><th>Property</th></tr></thead><tbody>${entries.map(e=>`<tr><td>${isoDate(e.date)}</td><td><span class="tag ${e.direction==='in'?'green':'red'}">${e.direction}</span></td><td>${esc(e.type||'—')}</td><td class="r">${moneyP(e.amount)}</td><td class="mono">${esc(e.ref||'—')}</td><td>${esc(propAddr(e.propertyId))}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No client money entries. Add one above.</div>'}`;
+}
+async function cmpReconcile(){
+  const entry={id:uid('cm'),date:now(),direction:'in',amount:0,type:'reconciliation',ref:'daily recon '+isoDate(),propertyId:''};
+  state.clientMoney.push(entry);await idbPut('clientMoney',entry);
+  await appendAudit('cmp.reconciled','daily reconciliation');toast('Reconciled');render();
+}
+
+// ─── RENT ───
+function renderRent(v){
+  const ledger=state.rentLedger.sort((a,b)=>b.dueDate-a.dueDate);
+  const arrears=ledger.filter(r=>!r.paidDate&&r.dueDate<now());
+  v.innerHTML=`<div class="section-h"><h2>Rent Ledger</h2><div class="actions"><button class="btn brass sm" onclick="openModal('rentEntry')">+ entry</button></div></div>
+  ${arrears.length?`<div class="card" style="margin-bottom:14px;border-color:var(--red)"><h3 style="color:var(--red)">Arrears (${arrears.length})</h3>${arrears.map(r=>`<div class="kpi"><span class="l">${tenancyLabel(r.tenancyId)} · due ${isoDate(r.dueDate)}</span><span class="v red">${moneyP(r.amount)}</span></div>`).join('')}</div>`:''}
+  ${ledger.length?`<table><thead><tr><th>Due</th><th>Tenancy</th><th>Amount</th><th>Paid</th><th>Status</th></tr></thead><tbody>${ledger.slice(0,50).map(r=>{const paid=!!r.paidDate;const overdue=!paid&&r.dueDate<now();return `<tr><td>${isoDate(r.dueDate)}</td><td>${tenancyLabel(r.tenancyId)}</td><td class="r">${moneyP(r.amount)}</td><td>${paid?isoDate(r.paidDate):'—'}</td><td><span class="tag ${paid?'green':overdue?'red':'muted'}">${paid?'paid':overdue?'arrears':'due'}</span></td></tr>`}).join('')}</tbody></table>`:'<div class="empty">No rent entries.</div>'}`;
+}
+
+// ─── DEPOSITS ───
+function renderDeposits(v){
+  const deps=state.deposits.sort((a,b)=>b.receivedAt-a.receivedAt);
+  v.innerHTML=`<div class="section-h"><h2>Deposit Protection</h2><div class="actions"><button class="btn brass sm" onclick="openModal('depositEntry')">+ deposit</button></div></div>
+  <div class="card" style="margin-bottom:14px"><h3>Housing Act 2004 — 30-day rule</h3>
+    <div class="kpi"><span class="l">total deposits held</span><span class="v">${deps.length}</span></div>
+    <div class="kpi"><span class="l">protected</span><span class="v green">${deps.filter(d=>d.protectedAt).length}</span></div>
+    <div class="kpi"><span class="l">unprotected</span><span class="v ${unprotectedDeposits().length?'red':'green'}">${unprotectedDeposits().length}</span></div>
+    <div class="kpi"><span class="l">overdue (>30d)</span><span class="v ${overdueDeposits().length?'red':'green'}">${overdueDeposits().length}</span></div>
+  </div>
+  ${deps.length?`<table><thead><tr><th>Received</th><th>Tenancy</th><th>Amount</th><th>Scheme</th><th>Protected</th><th>Status</th></tr></thead><tbody>${deps.map(d=>{const ds=depositStatus(d);return `<tr><td>${isoDate(d.receivedAt)}</td><td>${tenancyLabel(d.tenancyId)}</td><td class="r">${moneyP(d.amount)}</td><td>${esc(d.scheme||'—')}</td><td>${d.protectedAt?isoDate(d.protectedAt):'—'}</td><td><span class="tag ${ds.cls}">${ds.label}</span></td></tr>`}).join('')}</tbody></table>`:'<div class="empty">No deposits recorded.</div>'}`;
+}
+
+// ─── CONTRACTORS ───
+function renderContractors(v){
+  const items=state.contractors.sort((a,b)=>(b.paidAt||b.date||0)-(a.paidAt||a.date||0));
+  v.innerHTML=`<div class="section-h"><h2>Contractor Payments</h2><div class="actions"><button class="btn brass sm" onclick="openModal('contractorEntry')">+ payment</button></div></div>
+  ${items.length?`<table><thead><tr><th>Date</th><th>Property</th><th>Contractor</th><th>Scope</th><th>Net</th><th>VAT</th><th>Total</th><th>Paid from</th></tr></thead><tbody>${items.map(c=>{const vat=(+c.amount||0)*(+c.vatRate||0);const total=(+c.amount||0)+vat;return `<tr><td>${isoDate(c.paidAt||c.date)}</td><td>${propAddr(c.propertyId)}</td><td>${esc(c.contractor||'—')}</td><td>${esc(c.scope||'—')}</td><td class="r">${moneyP(c.amount)}</td><td class="r">${moneyP(vat)}</td><td class="r">${moneyP(total)}</td><td>${esc(c.paidFrom||'client')}</td></tr>`}).join('')}</tbody></table>`:'<div class="empty">No contractor payments.</div>'}`;
+}
+
+// ─── LANDLORD DISBURSEMENTS ───
+function renderLandlord(v){
+  const items=state.landlordDisbursements.sort((a,b)=>(b.monthKey||'').localeCompare(a.monthKey||''));
+  v.innerHTML=`<div class="section-h"><h2>Landlord Statements</h2><div class="actions"><button class="btn brass sm" onclick="openModal('landlordEntry')">+ statement</button></div></div>
+  ${items.length?`<table><thead><tr><th>Month</th><th>Landlord</th><th>Rent collected</th><th>Agency fee</th><th>Maintenance</th><th>VAT</th><th>Net to landlord</th></tr></thead><tbody>${items.map(d=>`<tr><td>${esc(d.monthKey)}</td><td>${clientName(d.landlordId)}</td><td class="r">${moneyP(d.rentCollected)}</td><td class="r">${moneyP(d.agencyFee)}</td><td class="r">${moneyP(d.maintenance)}</td><td class="r">${moneyP(d.vat)}</td><td class="r" style="color:var(--brass)">${moneyP(d.netToLandlord)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No landlord statements.</div>'}`;
+}
+
+// ─── AGENCY FEES ───
+function renderFees(v){
+  const items=state.agencyFees.sort((a,b)=>(b.date||0)-(a.date||0));
+  v.innerHTML=`<div class="section-h"><h2>Agency Fees</h2><div class="actions"><button class="btn brass sm" onclick="openModal('feeEntry')">+ fee</button></div></div>
+  ${items.length?`<table><thead><tr><th>Date</th><th>Property</th><th>Type</th><th>Structure</th><th>Amount</th></tr></thead><tbody>${items.map(f=>`<tr><td>${isoDate(f.date)}</td><td>${propAddr(f.propertyId)}</td><td><span class="tag">${esc(f.type||'—')}</span></td><td>${esc(f.structure||'—')}</td><td class="r">${moneyP(f.amount)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No agency fees recorded.</div>'}`;
+}
+
+// ─── SALES COMMISSION ───
+function renderSales(v){
+  const items=state.salesCommission.sort((a,b)=>(b.paidAt||0)-(a.paidAt||0));
+  v.innerHTML=`<div class="section-h"><h2>Sales Commission</h2><div class="actions"><button class="btn brass sm" onclick="openModal('salesEntry')">+ sale</button></div></div>
+  ${items.length?`<table><thead><tr><th>Date</th><th>Property</th><th>Sale price</th><th>Rate</th><th>Commission</th><th>Status</th></tr></thead><tbody>${items.map(s=>{const comm=(+s.salePrice||0)*(+s.agreedPct||0)/100;return `<tr><td>${s.paidAt?isoDate(s.paidAt):'—'}</td><td>${propAddr(s.propertyId)}</td><td class="r">${moneyP(s.salePrice)}</td><td class="r">${pct(s.agreedPct/100)}</td><td class="r" style="color:var(--brass)">${moneyP(comm)}</td><td><span class="tag ${s.paidAt?'green':'amber'}">${s.paidAt?'received':'pending'}</span></td></tr>`}).join('')}</tbody></table>`:'<div class="empty">No sales commission records.</div>'}`;
+}
+
+// ─── PROPERTIES ───
+function renderProperties(v){
+  v.innerHTML=`<div class="section-h"><h2>Properties</h2><div class="actions"><button class="btn brass sm" onclick="openModal('propertyEntry')">+ property</button></div></div>
+  ${state.properties.length?`<table><thead><tr><th>Address</th><th>Landlord</th><th>Type</th><th>Status</th></tr></thead><tbody>${state.properties.map(p=>`<tr><td>${esc(p.address||'—')}</td><td>${clientName(p.landlordId)}</td><td>${esc(p.type||'—')}</td><td><span class="tag ${p.status==='managed'?'green':p.status==='let-only'?'blue':'muted'}">${esc(p.status||'—')}</span></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No properties.</div>'}`;
+}
+
+// ─── TENANCIES ───
+function renderTenancies(v){
+  v.innerHTML=`<div class="section-h"><h2>Tenancies</h2><div class="actions"><button class="btn brass sm" onclick="openModal('tenancyEntry')">+ tenancy</button></div></div>
+  ${state.tenancies.length?`<table><thead><tr><th>Property</th><th>Tenant</th><th>Start</th><th>End</th><th>Rent</th><th>Status</th></tr></thead><tbody>${state.tenancies.map(t=>`<tr><td>${propAddr(t.propertyId)}</td><td>${clientName(t.tenantId)}</td><td>${isoDate(t.startDate)}</td><td>${t.endDate?isoDate(t.endDate):'periodic'}</td><td class="r">${moneyP(t.rent)}</td><td><span class="tag ${t.status==='active'?'green':'muted'}">${esc(t.status)}</span></td></tr>`).join('')}</tbody></table>`:'<div class="empty">No tenancies.</div>'}`;
+}
+
+// ─── CLIENTS ───
+function renderClients(v){
+  v.innerHTML=`<div class="section-h"><h2>Clients</h2><div class="sub">${state.clients.length}</div></div>
+  ${state.clients.length?`<table><thead><tr><th>Name</th><th>Type</th><th>Email</th></tr></thead><tbody>${state.clients.map(c=>`<tr><td>${esc(clientName(c.id))}</td><td><span class="tag">${esc(c.clientType||'—')}</span></td><td>${esc(c.email||'—')}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">Clients sync from fallestateonboard.</div>'}`;
+}
+
+// ─── ADVISERS/AGENTS ───
+function renderAdvisers(v){
+  v.innerHTML=`<div class="section-h"><h2>Agents / Negotiators</h2><div class="actions"><button class="btn brass sm" onclick="openModal('adviserEntry')">+ agent</button></div></div>
+  ${state.advisers.length?`<table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Split</th></tr></thead><tbody>${state.advisers.map(a=>`<tr><td>${esc(a.name)}</td><td>${esc(a.email||'—')}</td><td>${esc(a.role||'—')}</td><td class="r">${pct((a.commSplit||0)/100)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No agents/negotiators added.</div>'}`;
+}
+
+// ─── FIRM P&L ───
+function renderFirmPL(v){
+  const months=[];const d=new Date();for(let i=0;i<12;i++){months.push(new Date(d.getFullYear(),d.getMonth()-i,1).toISOString().slice(0,7))}months.reverse();
+  const annualAgency=months.reduce((s,m)=>s+totalAgencyFees(m),0);
+  const annualSales=months.reduce((s,m)=>s+totalSalesComm(m),0);
+  const annualExp=months.reduce((s,m)=>s+totalExpenses(m),0);
+  const annualGross=annualAgency+annualSales;
+  const overheads=(+state.settings.piAnnualPremium||0)+(+state.settings.cmpSchemeAnnual||0)+(+state.settings.hmrcAmlAnnual||0)+(+state.settings.propertyMarkAnnual||0);
+  const annualNet=annualGross-annualExp-overheads;
+  const vatLiable=annualGross>RULES.vatRegThreshold;
+  v.innerHTML=`<div class="section-h"><h2>Firm P&L</h2><div class="sub">rolling 12m</div></div>
+  <div class="grid" style="margin-bottom:18px">
+    <div class="card"><h3>Revenue</h3>
+      <div class="kpi"><span class="l">agency fees</span><span class="v">${moneyP(annualAgency)}</span></div>
+      <div class="kpi"><span class="l">sales commission</span><span class="v">${moneyP(annualSales)}</span></div>
+      <div class="kpi"><span class="l">gross revenue</span><span class="v brass">${moneyP(annualGross)}</span></div>
+    </div>
+    <div class="card"><h3>Costs</h3>
+      <div class="kpi"><span class="l">expenses</span><span class="v">${moneyP(annualExp)}</span></div>
+      <div class="kpi"><span class="l">PI insurance</span><span class="v">${moneyP(state.settings.piAnnualPremium)}</span></div>
+      <div class="kpi"><span class="l">CMP scheme</span><span class="v">${moneyP(state.settings.cmpSchemeAnnual)}</span></div>
+      <div class="kpi"><span class="l">HMRC AML supervision</span><span class="v">${moneyP(state.settings.hmrcAmlAnnual)}</span></div>
+      <div class="kpi"><span class="l">Propertymark</span><span class="v">${moneyP(state.settings.propertyMarkAnnual)}</span></div>
+      <div class="kpi"><span class="l">total overheads</span><span class="v red">${moneyP(annualExp+overheads)}</span></div>
+    </div>
+    <div class="card"><h3>Net</h3>
+      <div class="kpi"><span class="l">net profit</span><span class="v ${annualNet>=0?'green':'red'}">${moneyP(annualNet)}</span></div>
+      <div class="kpi"><span class="l">margin</span><span class="v">${annualGross>0?pct(annualNet/annualGross):'—'}</span></div>
+      <div class="kpi"><span class="l">VAT threshold</span><span class="v ${vatLiable?'amber':'green'}">${vatLiable?'ABOVE — register':'below'}</span></div>
+    </div>
+  </div>
+  <h3 style="font-family:var(--serif);margin-bottom:10px">Monthly Breakdown</h3>
+  <table><thead><tr><th>Month</th><th>Agency fees</th><th>Sales comm</th><th>Expenses</th><th>Net</th></tr></thead><tbody>${months.map(m=>{const af=totalAgencyFees(m);const sc=totalSalesComm(m);const ex=totalExpenses(m);const n=af+sc-ex;return `<tr><td>${m}</td><td class="r">${moneyP(af)}</td><td class="r">${moneyP(sc)}</td><td class="r">${moneyP(ex)}</td><td class="r" style="color:${n>=0?'var(--green)':'var(--red)'}">${moneyP(n)}</td></tr>`}).join('')}</tbody></table>`;
+}
+
+// ─── EXPENSES ───
+function renderExpenses(v){
+  const items=state.expenses.sort((a,b)=>(b.date||0)-(a.date||0));
+  v.innerHTML=`<div class="section-h"><h2>Expenses</h2><div class="actions"><button class="btn brass sm" onclick="openModal('expenseEntry')">+ expense</button></div></div>
+  ${items.length?`<table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th></tr></thead><tbody>${items.map(x=>`<tr><td>${isoDate(x.date)}</td><td>${esc(x.category||'—')}</td><td>${esc(x.description||'—')}</td><td class="r">${moneyP(x.amount)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No expenses.</div>'}`;
+}
+
+// ─── Q&A ───
+const T0_QA=[
+  {q:/cmp|client money|protection/i,a:'Client Money Protection (CMP) is mandatory for letting agents in England holding client money (Client Money Protection Schemes for Property Agents (Requirement to Belong to a Scheme etc.) Regulations 2019). Key requirements: belong to an approved scheme (e.g. PropertyMark, RICS, ARLA), daily reconciliation of client account vs records, annual independent audit/inspection, minimum PI cover, client money must be in a designated client account separate from office money.'},
+  {q:/deposit|30.?day|housing act 2004/i,a:'Housing Act 2004: tenancy deposits must be protected in DPS, MyDeposits, or TDS within 30 days of receipt. Prescribed Information (SI 2007/797) must also be served within 30 days. Failure penalty: 1-3× the deposit amount, and the landlord cannot serve a valid Section 21 notice. Tenant Fees Act 2019 caps deposits at 5 weeks\' rent for ASTs where annual rent <£50k.'},
+  {q:/rent.?arrears|ground.?8|s8/i,a:'Ground 8 (Housing Act 1988, Sch.2): mandatory ground for possession where at least 2 months\' rent is unpaid at the date of notice AND at the hearing. Notice period: 2 weeks minimum. Pre-action protocol: contact tenant, offer payment plans, signpost to debt advice. Section 8 notice must specify the ground(s) and particulars.'},
+  {q:/agency.?fee|commission|sole|multi/i,a:'Estate agency commission structures: sole agency (typically 1-1.5% + VAT), multi-agency (2-3% + VAT), online/hybrid (fixed fee). Commission triggers on exchange of contracts (not completion). EA 1979 s.18 requires clear explanation of sole agency / sole selling rights / multi-agency terms. Agent must disclose personal interests.'},
+  {q:/vat|threshold|registration/i,a:'VAT registration threshold: £90,000 (2025-26). Estate agents must register if taxable turnover exceeds threshold in any rolling 12-month period. Agency fees and sales commissions are standard-rated (20%). Residential rent is exempt. CMP client money is not turnover. Management fees charged to landlords are standard-rated.'},
+  {q:/landlord.?statement|disbursement/i,a:'Monthly landlord statement should show: rent collected, agency management fee (deducted), maintenance costs (deducted from client account with landlord authority), VAT on fees, net amount remitted to landlord. CMP rules require: payments from client account only for authorised purposes, clear records, no commingling with office funds.'},
+  {q:/pi|insurance|professional.?indemnity/i,a:'PI (Professional Indemnity) insurance is required for CMP scheme membership and PropertyMark/ARLA membership. Typical minimum cover: £100k per single claim. CMP schemes require the agent to maintain adequate PI. RICS firms need minimum £500k. Check your scheme\'s specific requirements. PI covers negligence, errors, and omissions.'},
+  {q:/redress|tpo|prs|ombudsman/i,a:'Property redress scheme membership is mandatory (Enterprise & Regulatory Reform Act 2013). Approved schemes: Property Ombudsman (TPO) and Property Redress Scheme (PRS). Penalty for non-membership: up to £5,000. Both lettings and sales activities require membership. Complaints must be handled via internal complaints procedure first, then referred to the scheme.'},
+  {q:/aml|money.?laundering|mlr/i,a:'MLR 2017 applies to estate agents in property transactions. CDD required for all parties. High-value properties and cash transactions are higher risk. HMRC is the supervisory authority (not FCA). Agents must: register with HMRC, conduct risk assessments, apply CDD, report suspicious activity (SAR to NCA), keep records for 5 years. Annual supervision fee ~£300 per premise.'},
+  {q:/inspection|inventory|check.?out/i,a:'Inventory and inspection best practice: detailed check-in inventory (room-by-room condition, meter readings, photos), periodic inspections (typically quarterly), check-out inventory. For deposit disputes: inventory is primary evidence. ADR schemes (DPS/MyDeposits/TDS) rely heavily on the quality of the inventory. Mid-tenancy inspections require 24 hours\' written notice.'},
+];
+function askT0(q){for(const r of T0_QA){if(r.q.test(q))return {answer:r.a,source:'T0 · UK estate/letting rules'};}return null}
+async function askT3(q){if(!state.settings.anthropicKey)return null;try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'x-api-key':state.settings.anthropicKey,'anthropic-version':'2023-06-01','content-type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:'You are a UK estate & letting agent accounting expert. CMP, deposits, rent, commission, VAT. Concise answer.\n\n'+q}]})});if(!res.ok)return null;const j=await res.json();return {answer:j.content?.[0]?.text,source:'T3 · Anthropic'}}catch(e){return null}}
+
+function renderQA(v){
+  v.innerHTML=`<div class="section-h"><h2>Q & A</h2><div class="sub">T0 + T3 BYOK</div></div>
+  <div class="card" style="max-width:780px">
+    <div class="chat" id="chatBox">${(state.chat||[]).map(m=>`<div class="msg ${m.role}">${esc(m.text)}${m.source?`<div class="src">${esc(m.source)}</div>`:''}</div>`).join('')}</div>
+    <div class="chat-input"><input id="chatIn" placeholder="Ask… 'CMP daily reconciliation?' · '30-day deposit rule?'" onkeydown="if(event.key==='Enter')askQuestion()"><button class="btn brass" onclick="askQuestion()">Ask</button></div>
+  </div>`;
+  const box=$('#chatBox');if(box)box.scrollTop=box.scrollHeight;
+}
+async function askQuestion(){const inp=$('#chatIn');if(!inp)return;const q=inp.value.trim();if(!q)return;inp.value='';if(!state.chat)state.chat=[];state.chat.push({role:'user',text:q});render();let r=askT0(q);if(!r)r=await askT3(q);state.chat.push(r?{role:'bot',text:r.answer,source:r.source}:{role:'bot',text:'No T0 match. Add BYOK key in Settings for T3.',source:'system'});saveState();render();}
+
+// ─── PALETTE (Ctrl+K) ───
+function openPalette(){$('#palette').classList.add('open');const inp=$('#pInput');inp.value='';inp.focus();$('#pTier').textContent=state.settings.anthropicKey?'T3':'T0';$('#pBody').innerHTML='<div class="empty">Type a question. T0 rules checked first, then T3 if BYOK key set.</div>';}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openPalette()}if(e.key==='Escape'){$('#palette').classList.remove('open');closeModal();}});
+$('#pInput')?.addEventListener('keydown',async e=>{if(e.key!=='Enter')return;const q=e.target.value.trim();if(!q)return;e.target.value='';const body=$('#pBody');body.innerHTML='<div class="empty">Thinking…</div>';let r=askT0(q);if(!r)r=await askT3(q);body.innerHTML=r?`<div class="msg bot">${esc(r.answer)}<div class="src">${esc(r.source)}</div></div>`:`<div class="empty">No match. Try rephrasing.</div>`;});
+$('#palette')?.addEventListener('click',e=>{if(e.target.id==='palette'||e.target.classList.contains('palette-bg'))$('#palette').classList.remove('open')});
+
+// ─── MODALS ───
+function openModal(type){const modal=$('#modal');const title=$('#modalTitle');const body=$('#modalBody');modal.classList.add('open');
+  const propOpts=state.properties.map(p=>`<option value="${p.id}">${esc(p.address)}</option>`).join('');
+  const tenOpts=state.tenancies.map(t=>`<option value="${t.id}">${esc(propAddr(t.propertyId)+' · '+clientName(t.tenantId))}</option>`).join('');
+  const llOpts=state.clients.filter(c=>c.clientType==='landlord').map(c=>`<option value="${c.id}">${esc(clientName(c.id))}</option>`).join('');
+  if(type==='cmpEntry'){title.textContent='Client Money Entry';body.innerHTML=`<div class="row"><div class="field"><label>Direction</label><select id="cmDir"><option value="in">in</option><option value="out">out</option></select></div><div class="field"><label>Type</label><select id="cmType"><option value="rent">rent received</option><option value="deposit">deposit received</option><option value="maintenance">maintenance out</option><option value="disbursement">landlord disbursement</option><option value="refund">deposit refund</option><option value="other">other</option></select></div></div><div class="row"><div class="field"><label>Amount</label><input type="number" id="cmAmt" step="0.01"></div><div class="field"><label>Property</label><select id="cmProp"><option value="">—</option>${propOpts}</select></div></div><div class="field"><label>Ref</label><input id="cmRef"></div><div class="actions"><button class="btn brass" onclick="saveCMEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='rentEntry'){title.textContent='Rent Entry';body.innerHTML=`<div class="row"><div class="field"><label>Tenancy</label><select id="reTen"><option value="">—</option>${tenOpts}</select></div><div class="field"><label>Amount</label><input type="number" id="reAmt" step="0.01"></div></div><div class="row"><div class="field"><label>Due date</label><input type="date" id="reDue"></div><div class="field"><label>Paid date</label><input type="date" id="rePaid"></div></div><div class="actions"><button class="btn brass" onclick="saveRentEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='depositEntry'){title.textContent='Deposit';body.innerHTML=`<div class="row"><div class="field"><label>Tenancy</label><select id="dpTen"><option value="">—</option>${tenOpts}</select></div><div class="field"><label>Amount</label><input type="number" id="dpAmt" step="0.01"></div></div><div class="row"><div class="field"><label>Scheme</label><select id="dpSch"><option value="DPS">DPS</option><option value="MyDeposits">MyDeposits</option><option value="TDS">TDS</option></select></div><div class="field"><label>Received date</label><input type="date" id="dpRec"></div></div><div class="field"><label>Protected date</label><input type="date" id="dpPro"><div class="hint">leave blank if not yet protected</div></div><div class="actions"><button class="btn brass" onclick="saveDepositEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='contractorEntry'){title.textContent='Contractor Payment';body.innerHTML=`<div class="row"><div class="field"><label>Property</label><select id="coProp"><option value="">—</option>${propOpts}</select></div><div class="field"><label>Contractor</label><input id="coName"></div></div><div class="field"><label>Scope</label><input id="coScope"></div><div class="row"><div class="field"><label>Net amount</label><input type="number" id="coAmt" step="0.01"></div><div class="field"><label>VAT rate</label><select id="coVat"><option value="0">exempt</option><option value="0.20">20% standard</option></select></div></div><div class="field"><label>Paid from</label><select id="coFrom"><option value="client">client account</option><option value="landlord">landlord direct</option></select></div><div class="actions"><button class="btn brass" onclick="saveContractorEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='landlordEntry'){title.textContent='Landlord Statement';body.innerHTML=`<div class="row"><div class="field"><label>Landlord</label><select id="llId"><option value="">—</option>${llOpts}</select></div><div class="field"><label>Month</label><input type="month" id="llMonth"></div></div><div class="row"><div class="field"><label>Rent collected</label><input type="number" id="llRent" step="0.01"></div><div class="field"><label>Agency fee</label><input type="number" id="llFee" step="0.01"></div></div><div class="row"><div class="field"><label>Maintenance</label><input type="number" id="llMaint" step="0.01"></div><div class="field"><label>VAT on fee</label><input type="number" id="llVat" step="0.01"></div></div><div class="actions"><button class="btn brass" onclick="saveLandlordEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='feeEntry'){title.textContent='Agency Fee';body.innerHTML=`<div class="row"><div class="field"><label>Property</label><select id="afProp"><option value="">—</option>${propOpts}</select></div><div class="field"><label>Type</label><select id="afType"><option value="setup">setup / finder</option><option value="monthly">monthly mgmt</option><option value="renewal">renewal</option><option value="checkout">check-out</option></select></div></div><div class="row"><div class="field"><label>Amount</label><input type="number" id="afAmt" step="0.01"></div><div class="field"><label>Structure</label><select id="afStr"><option value="fixed">fixed</option><option value="pct">% of rent</option></select></div></div><div class="actions"><button class="btn brass" onclick="saveFeeEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='salesEntry'){title.textContent='Sales Commission';body.innerHTML=`<div class="row"><div class="field"><label>Property</label><select id="scProp"><option value="">—</option>${propOpts}</select></div><div class="field"><label>Sale price</label><input type="number" id="scPrice" step="1"></div></div><div class="row"><div class="field"><label>Commission %</label><input type="number" id="scPct" step="0.1" value="1.5"></div><div class="field"><label>Paid date</label><input type="date" id="scPaid"></div></div><div class="actions"><button class="btn brass" onclick="saveSalesEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='propertyEntry'){title.textContent='Add Property';body.innerHTML=`<div class="field"><label>Address</label><input id="prAddr"></div><div class="row"><div class="field"><label>Landlord</label><select id="prLL"><option value="">—</option>${llOpts}</select></div><div class="field"><label>Type</label><select id="prType"><option value="house">house</option><option value="flat">flat</option><option value="hmo">HMO</option><option value="commercial">commercial</option></select></div></div><div class="field"><label>Service level</label><select id="prStatus"><option value="managed">fully managed</option><option value="let-only">let only</option><option value="sales">sales instruction</option></select></div><div class="actions"><button class="btn brass" onclick="savePropertyEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='tenancyEntry'){title.textContent='Add Tenancy';body.innerHTML=`<div class="row"><div class="field"><label>Property</label><select id="tnProp"><option value="">—</option>${propOpts}</select></div><div class="field"><label>Tenant</label><select id="tnTenant"><option value="">—</option>${state.clients.filter(c=>c.clientType==='tenant').map(c=>`<option value="${c.id}">${esc(clientName(c.id))}</option>`).join('')}</select></div></div><div class="row"><div class="field"><label>Start date</label><input type="date" id="tnStart"></div><div class="field"><label>End date</label><input type="date" id="tnEnd"></div></div><div class="field"><label>Monthly rent</label><input type="number" id="tnRent" step="1"></div><div class="actions"><button class="btn brass" onclick="saveTenancyEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='adviserEntry'){title.textContent='Add Agent';body.innerHTML=`<div class="row"><div class="field"><label>Name</label><input id="avName"></div><div class="field"><label>Email</label><input id="avEmail"></div></div><div class="row"><div class="field"><label>Role</label><select id="avRole"><option value="negotiator">negotiator</option><option value="senior">senior negotiator</option><option value="manager">branch manager</option><option value="director">director</option></select></div><div class="field"><label>Commission split %</label><input type="number" id="avSplit" step="1" value="20"></div></div><div class="actions"><button class="btn brass" onclick="saveAdviserEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='expenseEntry'){title.textContent='Expense';body.innerHTML=`<div class="row"><div class="field"><label>Category</label><select id="exCat"><option value="rent">office rent</option><option value="utilities">utilities</option><option value="portal">portal fees (RM/Z/OTM)</option><option value="software">software</option><option value="marketing">marketing</option><option value="insurance">PI / insurance</option><option value="membership">membership / CMP</option><option value="staff">staff costs</option><option value="travel">travel</option><option value="other">other</option></select></div><div class="field"><label>Amount</label><input type="number" id="exAmt" step="0.01"></div></div><div class="field"><label>Description</label><input id="exDesc"></div><div class="actions"><button class="btn brass" onclick="saveExpenseEntry()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+  else if(type==='settings'){title.textContent='Settings';body.innerHTML=`<div class="field"><label>Anthropic key (T3)</label><input type="password" id="sKey" value="${esc(state.settings.anthropicKey||'')}"></div>
+    <div class="row"><div class="field"><label>CMP scheme</label><select id="sCmpScheme"><option ${state.settings.cmpScheme==='PropertyMark'?'selected':''}>PropertyMark</option><option ${state.settings.cmpScheme==='RICS'?'selected':''}>RICS</option><option ${state.settings.cmpScheme==='ARLA'?'selected':''}>ARLA</option></select></div><div class="field"><label>CMP ref</label><input id="sCmpRef" value="${esc(state.settings.cmpSchemeRef||'')}"></div></div>
+    <div class="row"><div class="field"><label>CMP annual £</label><input type="number" id="sCmpAnn" value="${state.settings.cmpSchemeAnnual||0}"></div><div class="field"><label>PI annual £</label><input type="number" id="sPiAnn" value="${state.settings.piAnnualPremium||0}"></div></div>
+    <div class="row"><div class="field"><label>HMRC AML annual £</label><input type="number" id="sAml" value="${state.settings.hmrcAmlAnnual||0}"></div><div class="field"><label>Propertymark annual £</label><input type="number" id="sPm" value="${state.settings.propertyMarkAnnual||0}"></div></div>
+    <div class="actions"><button class="btn" onclick="exportAll()">Export</button><button class="btn" onclick="importAll()">Import</button><button class="btn danger" onclick="wipeAll()">Wipe</button><button class="btn brass" onclick="saveSettings()">Save</button><button class="btn" onclick="closeModal()">Cancel</button></div>`;}
+}
+function closeModal(){$('#modal').classList.remove('open');}
+
+// ─── SAVE HANDLERS ───
+async function saveCMEntry(){const e={id:uid('cm'),date:now(),direction:$('#cmDir').value,type:$('#cmType').value,amount:+$('#cmAmt').value||0,propertyId:$('#cmProp').value,ref:$('#cmRef').value.trim()};state.clientMoney.push(e);await idbPut('clientMoney',e);await appendAudit('cmp.entry',e.type,e);closeModal();toast('Saved');render()}
+async function saveRentEntry(){const e={id:uid('re'),tenancyId:$('#reTen').value,amount:+$('#reAmt').value||0,dueDate:new Date($('#reDue').value||Date.now()).getTime(),paidDate:$('#rePaid').value?new Date($('#rePaid').value).getTime():null};state.rentLedger.push(e);await idbPut('rentLedger',e);await appendAudit('rent.entry','',e);closeModal();toast('Saved');render()}
+async function saveDepositEntry(){const e={id:uid('dp'),tenancyId:$('#dpTen').value,amount:+$('#dpAmt').value||0,scheme:$('#dpSch').value,receivedAt:new Date($('#dpRec').value||Date.now()).getTime(),protectedAt:$('#dpPro').value?new Date($('#dpPro').value).getTime():null,prescribedInfoServedAt:null};state.deposits.push(e);await idbPut('deposits',e);await appendAudit('deposit.entry','',e);closeModal();toast('Saved');render()}
+async function saveContractorEntry(){const e={id:uid('co'),propertyId:$('#coProp').value,contractor:$('#coName').value.trim(),scope:$('#coScope').value.trim(),amount:+$('#coAmt').value||0,vatRate:+$('#coVat').value||0,paidFrom:$('#coFrom').value,paidAt:now(),date:now()};state.contractors.push(e);await idbPut('contractors',e);await appendAudit('contractor.paid','',e);closeModal();toast('Saved');render()}
+async function saveLandlordEntry(){const rent=+$('#llRent').value||0;const fee=+$('#llFee').value||0;const maint=+$('#llMaint').value||0;const vat=+$('#llVat').value||0;const e={id:uid('ll'),landlordId:$('#llId').value,monthKey:$('#llMonth').value||monthKey(),rentCollected:rent,agencyFee:fee,maintenance:maint,vat,netToLandlord:rent-fee-maint-vat};state.landlordDisbursements.push(e);await idbPut('landlordDisbursements',e);await appendAudit('landlord.statement','',e);closeModal();toast('Saved');render()}
+async function saveFeeEntry(){const e={id:uid('af'),propertyId:$('#afProp').value,type:$('#afType').value,structure:$('#afStr').value,amount:+$('#afAmt').value||0,date:now()};state.agencyFees.push(e);await idbPut('agencyFees',e);await appendAudit('fee.entry','',e);closeModal();toast('Saved');render()}
+async function saveSalesEntry(){const e={id:uid('sc'),propertyId:$('#scProp').value,salePrice:+$('#scPrice').value||0,agreedPct:+$('#scPct').value||0,paidAt:$('#scPaid').value?new Date($('#scPaid').value).getTime():null};state.salesCommission.push(e);await idbPut('salesCommission',e);await appendAudit('sales.entry','',e);closeModal();toast('Saved');render()}
+async function savePropertyEntry(){const e={id:uid('pr'),address:$('#prAddr').value.trim(),landlordId:$('#prLL').value,type:$('#prType').value,status:$('#prStatus').value};state.properties.push(e);await idbPut('properties',e);await appendAudit('property.added','',e);closeModal();toast('Saved');render()}
+async function saveTenancyEntry(){const e={id:uid('tn'),propertyId:$('#tnProp').value,tenantId:$('#tnTenant').value,startDate:new Date($('#tnStart').value||Date.now()).getTime(),endDate:$('#tnEnd').value?new Date($('#tnEnd').value).getTime():null,rent:+$('#tnRent').value||0,status:'active'};state.tenancies.push(e);await idbPut('tenancies',e);await appendAudit('tenancy.added','',e);closeModal();toast('Saved');render()}
+async function saveAdviserEntry(){const e={id:uid('av'),name:$('#avName').value.trim(),email:$('#avEmail').value.trim(),role:$('#avRole').value,commSplit:+$('#avSplit').value||0};state.advisers.push(e);await idbPut('advisers',e);await appendAudit('adviser.added','',e);closeModal();toast('Saved');render()}
+async function saveExpenseEntry(){const e={id:uid('ex'),category:$('#exCat').value,amount:+$('#exAmt').value||0,description:$('#exDesc').value.trim(),date:now()};state.expenses.push(e);await idbPut('expenses',e);await appendAudit('expense.entry','',e);closeModal();toast('Saved');render()}
+function saveSettings(){state.settings.anthropicKey=$('#sKey').value.trim();state.settings.cmpScheme=$('#sCmpScheme').value;state.settings.cmpSchemeRef=$('#sCmpRef').value.trim();state.settings.cmpSchemeAnnual=+$('#sCmpAnn').value||0;state.settings.piAnnualPremium=+$('#sPiAnn').value||0;state.settings.hmrcAmlAnnual=+$('#sAml').value||0;state.settings.propertyMarkAnnual=+$('#sPm').value||0;$('#tierBadge').textContent=state.settings.anthropicKey?'T3':'T0';saveState();persistSettingsLS();closeModal();toast('Saved');render()}
+
+function exportAll(){const d={tool:TOOLNAME,v:VERSION,ts:now(),firm:state.firm,clients:state.clients,advisers:state.advisers,properties:state.properties,tenancies:state.tenancies,clientMoney:state.clientMoney,rentLedger:state.rentLedger,deposits:state.deposits,contractors:state.contractors,landlordDisbursements:state.landlordDisbursements,agencyFees:state.agencyFees,salesCommission:state.salesCommission,expenses:state.expenses};const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='fallestatepractice-export.json';a.click();URL.revokeObjectURL(u);toast('Exported')}
+function importAll(){const inp=document.createElement('input');inp.type='file';inp.accept='.json';inp.onchange=async()=>{const f=inp.files[0];if(!f)return;try{const d=JSON.parse(await f.text());if(d.firm){state.firm=d.firm;await idbPut('firms',d.firm)}for(const k of['clients','advisers','properties','tenancies','clientMoney','rentLedger','deposits','contractors','landlordDisbursements','agencyFees','salesCommission','expenses']){if(Array.isArray(d[k]))for(const r of d[k]){state[k].push(r);await idbPut(k,r)}}toast('Imported');render()}catch(e){toast('Import failed')}};inp.click()}
+async function wipeAll(){if(!confirm('Wipe ALL data?'))return;for(const s of STORES){try{const tx=db.transaction(s,'readwrite');tx.objectStore(s).clear();await new Promise(r=>{tx.oncomplete=r})}catch(e){}}location.reload()}
+
+// ─── DEMO ───
+async function seedDemo(){if(state.settings.demoLoaded)return;
+  const firm={id:uid('fi'),name:'Demo Estates & Lettings Ltd',address:'5 High Street, London SW1A 2AA',email:'info@demoestates.co.uk',phone:'020 7456 7890',hmrcAmlRef:'XMLR00012345',redressScheme:'PRS',updatedAt:now(),isDemo:true};
+  state.firm=firm;await idbPut('firms',firm);
+
+  const ll1={id:uid('cl'),clientType:'landlord',title:'Mr',firstName:'David',lastName:'Harrington',address:'14 Park Lane, London W1K 1QS',email:'d.harrington@email.co.uk',phone:'07700 900111',ts:now(),isDemo:true};
+  const ll2={id:uid('cl'),clientType:'landlord',title:'Mrs',firstName:'Susan',lastName:'Chen',address:'8 Mayfair Court, London W1J 8DT',email:'s.chen@email.co.uk',phone:'07700 900222',ts:now(),isDemo:true};
+  const t1={id:uid('cl'),clientType:'tenant',title:'Ms',firstName:'Emma',lastName:'Clarke',address:'Flat 3, 22 Elm Street, London SE1 5AB',email:'emma@email.co.uk',phone:'07700 900333',ts:now(),isDemo:true};
+  const t2={id:uid('cl'),clientType:'tenant',title:'Mr',firstName:'James',lastName:'Okonkwo',address:'15 Victoria Road, London N1 4RT',email:'j.okonkwo@email.co.uk',phone:'07700 900444',ts:now(),isDemo:true};
+  state.clients.push(ll1,ll2,t1,t2);for(const c of[ll1,ll2,t1,t2])await idbPut('clients',c);
+
+  const ag1={id:uid('av'),name:'Sarah Mitchell',email:'s.mitchell@demoestates.co.uk',role:'senior',commSplit:25};
+  const ag2={id:uid('av'),name:'Tom Patel',email:'t.patel@demoestates.co.uk',role:'negotiator',commSplit:20};
+  state.advisers.push(ag1,ag2);await idbPut('advisers',ag1);await idbPut('advisers',ag2);
+
+  const p1={id:uid('pr'),address:'Flat 3, 22 Elm Street, London SE1 5AB',landlordId:ll1.id,type:'flat',status:'managed'};
+  const p2={id:uid('pr'),address:'15 Victoria Road, London N1 4RT',landlordId:ll2.id,type:'house',status:'managed'};
+  const p3={id:uid('pr'),address:'42 Oak Avenue, London E8 2QP',landlordId:ll1.id,type:'flat',status:'sales'};
+  state.properties.push(p1,p2,p3);for(const p of[p1,p2,p3])await idbPut('properties',p);
+
+  const tn1={id:uid('tn'),propertyId:p1.id,tenantId:t1.id,startDate:now()-180*dayMs,endDate:now()+185*dayMs,rent:1400,status:'active'};
+  const tn2={id:uid('tn'),propertyId:p2.id,tenantId:t2.id,startDate:now()-90*dayMs,endDate:now()+275*dayMs,rent:1850,status:'active'};
+  state.tenancies.push(tn1,tn2);await idbPut('tenancies',tn1);await idbPut('tenancies',tn2);
+
+  const mk=monthKey();const prevMk=new Date(Date.now()-32*dayMs).toISOString().slice(0,7);
+  for(const m of[prevMk,mk]){
+    const r1={id:uid('re'),tenancyId:tn1.id,amount:1400,dueDate:new Date(m+'-01').getTime(),paidDate:m===mk?null:new Date(m+'-03').getTime()};
+    const r2={id:uid('re'),tenancyId:tn2.id,amount:1850,dueDate:new Date(m+'-01').getTime(),paidDate:new Date(m+'-02').getTime()};
+    state.rentLedger.push(r1,r2);await idbPut('rentLedger',r1);await idbPut('rentLedger',r2);
+  }
+
+  const dp1={id:uid('dp'),tenancyId:tn1.id,amount:1615,scheme:'DPS',receivedAt:now()-180*dayMs,protectedAt:now()-165*dayMs};
+  const dp2={id:uid('dp'),tenancyId:tn2.id,amount:2131,scheme:'MyDeposits',receivedAt:now()-90*dayMs,protectedAt:now()-75*dayMs};
+  state.deposits.push(dp1,dp2);await idbPut('deposits',dp1);await idbPut('deposits',dp2);
+
+  const cm1={id:uid('cm'),date:now()-2*dayMs,direction:'in',amount:1850,type:'rent',ref:'tn2 '+mk,propertyId:p2.id};
+  const cm2={id:uid('cm'),date:now()-1*dayMs,direction:'in',amount:0,type:'reconciliation',ref:'daily recon',propertyId:''};
+  state.clientMoney.push(cm1,cm2);await idbPut('clientMoney',cm1);await idbPut('clientMoney',cm2);
+
+  const co1={id:uid('co'),propertyId:p1.id,contractor:'Smith Plumbing',scope:'Boiler service',amount:180,vatRate:0.20,paidFrom:'client',paidAt:now()-20*dayMs,date:now()-20*dayMs};
+  state.contractors.push(co1);await idbPut('contractors',co1);
+
+  const ld1={id:uid('ll'),landlordId:ll1.id,monthKey:prevMk,rentCollected:1400,agencyFee:168,maintenance:216,vat:33.60,netToLandlord:982.40};
+  const ld2={id:uid('ll'),landlordId:ll2.id,monthKey:prevMk,rentCollected:1850,agencyFee:222,maintenance:0,vat:44.40,netToLandlord:1583.60};
+  state.landlordDisbursements.push(ld1,ld2);await idbPut('landlordDisbursements',ld1);await idbPut('landlordDisbursements',ld2);
+
+  const af1={id:uid('af'),propertyId:p1.id,type:'monthly',structure:'pct',amount:168,date:now()-30*dayMs};
+  const af2={id:uid('af'),propertyId:p2.id,type:'monthly',structure:'pct',amount:222,date:now()-30*dayMs};
+  state.agencyFees.push(af1,af2);await idbPut('agencyFees',af1);await idbPut('agencyFees',af2);
+
+  const sc1={id:uid('sc'),propertyId:p3.id,salePrice:425000,agreedPct:1.5,paidAt:now()-15*dayMs};
+  state.salesCommission.push(sc1);await idbPut('salesCommission',sc1);
+
+  const ex1={id:uid('ex'),category:'portal',amount:500,description:'Rightmove monthly',date:now()-10*dayMs};
+  const ex2={id:uid('ex'),category:'rent',amount:1200,description:'Office rent',date:now()-5*dayMs};
+  state.expenses.push(ex1,ex2);await idbPut('expenses',ex1);await idbPut('expenses',ex2);
+
+  state.settings.demoLoaded=true;state.settings.cmpSchemeRef='CMP-DEMO-001';state.settings.piAnnualPremium=900;
+  await saveState();await appendAudit('demo.seeded','first boot');
+}
+
+// ─── FIRM ───
+function renderFirmSetup(){
+  const f=state.firm||{};
+  return `<div class="section-h"><h2>Firm Setup</h2></div><div class="card" style="max-width:620px">
+    <div class="row"><div class="field"><label>Name</label><input id="fName" value="${esc(f.name||'')}"></div><div class="field"><label>Email</label><input id="fEmail" value="${esc(f.email||'')}"></div></div>
+    <div class="field"><label>Address</label><input id="fAddr" value="${esc(f.address||'')}"></div>
+    <div class="row"><div class="field"><label>Phone</label><input id="fPhone" value="${esc(f.phone||'')}"></div><div class="field"><label>HMRC AML ref</label><input id="fAml" value="${esc(f.hmrcAmlRef||'')}"></div></div>
+    <div class="field"><label>Redress scheme</label><select id="fRedress"><option ${f.redressScheme==='PRS'?'selected':''}>PRS</option><option ${f.redressScheme==='TPO'?'selected':''}>TPO</option></select></div>
+    <button class="btn brass" onclick="saveFirmForm()" style="margin-top:8px">Save</button></div>`;
+}
+async function saveFirmForm(){const f=state.firm||{id:uid('fi'),ts:now()};f.name=$('#fName').value.trim();f.email=$('#fEmail').value.trim();f.address=$('#fAddr').value.trim();f.phone=$('#fPhone').value.trim();f.hmrcAmlRef=$('#fAml').value.trim();f.redressScheme=$('#fRedress').value;f.updatedAt=now();state.firm=f;await idbPut('firms',f);await appendAudit('firm.saved');toast('Saved');render()}
+
+// ─── BOOT ───
+(async function boot(){
+  try{
+    await loadAll();
+    await seedDemo();
+    initMesh();
+    $('#tierBadge').textContent=state.settings.anthropicKey?'T3':'T0';
+    render();
+  }catch(e){
+    console.error('[fallestatepractice] boot error:',e);
+    document.getElementById('view').innerHTML='<div class="empty">Boot error: '+esc(e.message)+'</div>';
+  }
+})()
