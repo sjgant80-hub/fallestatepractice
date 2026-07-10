@@ -30,7 +30,7 @@ Run your estate or letting agency's finances from one HTML file. 15 tabs cover C
 
 - **CMP**: mandatory for letting agents holding client money (SI 2019/386)
 - **Deposit protection**: Housing Act 2004 — 30 days, 1-3x penalty
-- **VAT threshold**: £90k (2025-26) — standard rate on agency fees
+- **VAT threshold**: TBAk (2025-26) — standard rate on agency fees
 - **Redress**: PRS or TPO membership required (ERRA 2013)
 - **AML**: HMRC supervision under MLR 2017
 

@@ -161,22 +161,19 @@ tr.clickable:hover td{background:var(--ink)}
     'llama-3b':  { id: 'Llama-3.2-3B-Instruct-q4f16_1-MLC',   size: '~2GB',   label: '3B · balanced · default · most laptops' },
     'qwen-7b':   { id: 'Qwen2.5-7B-Instruct-q4f16_1-MLC',     size: '~5GB',   label: '7B · capable · needs decent GPU (M-series Mac / 8GB+ VRAM)' },
     'llama-8b':  { id: 'Llama-3.1-8B-Instruct-q4f16_1-MLC',   size: '~5GB',   label: '8B · common · needs decent GPU' },
-    'llama-70b': { id: 'Llama-3.1-70B-Instruct-q4f16_1-MLC',  size: '~40GB',  label: '70B · frontier · needs serious GPU + 64GB+ RAM' },
-  };
+    'llama-70b': { id: 'Llama-3.1-70B-Instruct-q4f16_1-MLC',  size: '~40GB',  label: '70B · frontier · needs serious GPU + 64GB+ RAM' }};
   const DEFAULT_MODEL = 'llama-3b';
 
   const T3_PROVIDERS = {
     anthropic: { label: 'Anthropic Claude', models: ['claude-sonnet-4-5','claude-opus-4-7','claude-haiku-4-5'], default: 'claude-sonnet-4-5', url: 'https://api.anthropic.com/v1/messages' },
     openai:    { label: 'OpenAI',           models: ['gpt-4o','gpt-4o-mini','o1-mini'],                          default: 'gpt-4o-mini',      url: 'https://api.openai.com/v1/chat/completions' },
-    google:    { label: 'Google Gemini',    models: ['gemini-1.5-pro','gemini-1.5-flash','gemini-2.0-flash-exp'], default: 'gemini-1.5-flash', url: 'https://generativelanguage.googleapis.com/v1beta/models/' },
-  };
+    google:    { label: 'Google Gemini',    models: ['gemini-1.5-pro','gemini-1.5-flash','gemini-2.0-flash-exp'], default: 'gemini-1.5-flash', url: 'https://generativelanguage.googleapis.com/v1beta/models/' }};
 
   // ─── State ───────────────────────────────────────────────────────
   const STATE = {
     config: loadConfig(),
     ai: { ready: false, loading: false, progress: 0, engine: null, model: null },
-    mesh: { active: false, peers: new Map(), bc: null, signal: null },
-  };
+    mesh: { active: false, peers: new Map(), bc: null, signal: null }};
 
   function loadConfig() {
     try { return JSON.parse(localStorage.getItem('fall-kit.config') || '{}'); }
@@ -243,8 +240,7 @@ tr.clickable:hover td{background:var(--ink)}
     if (tier === 'T2' && STATE.ai.ready && STATE.ai.engine) {
       const r = await STATE.ai.engine.chat.completions.create({
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMsg }],
-        max_tokens: maxTokens,
-      });
+        max_tokens: maxTokens});
       return r.choices[0].message.content;
     }
     if (tier === 'T3' && STATE.config.api_key && STATE.config.api_provider) {
@@ -261,8 +257,7 @@ tr.clickable:hover td{background:var(--ink)}
       const r = await fetch(T3_PROVIDERS.anthropic.url, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model, max_tokens: maxTokens, system: sys, messages: [{ role: 'user', content: msg }] }),
-      });
+        body: JSON.stringify({ model, max_tokens: maxTokens, system: sys, messages: [{ role: 'user', content: msg }] })});
       if (!r.ok) throw new Error('Anthropic ' + r.status + ': ' + (await r.text()).slice(0, 200));
       const j = await r.json();
       return j.content[0].text;
@@ -271,8 +266,7 @@ tr.clickable:hover td{background:var(--ink)}
       const r = await fetch(T3_PROVIDERS.openai.url, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + key },
-        body: JSON.stringify({ model, max_tokens: maxTokens, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] }),
-      });
+        body: JSON.stringify({ model, max_tokens: maxTokens, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] })});
       if (!r.ok) throw new Error('OpenAI ' + r.status);
       const j = await r.json();
       return j.choices[0].message.content;
@@ -281,8 +275,7 @@ tr.clickable:hover td{background:var(--ink)}
       const r = await fetch(T3_PROVIDERS.google.url + model + ':generateContent?key=' + encodeURIComponent(key), {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: sys + '\n\n---\n\n' + msg }] }], generationConfig: { maxOutputTokens: maxTokens } }),
-      });
+        body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: sys + '\n\n---\n\n' + msg }] }], generationConfig: { maxOutputTokens: maxTokens } })});
       if (!r.ok) throw new Error('Google ' + r.status);
       const j = await r.json();
       return j.candidates[0].content.parts[0].text;
@@ -523,8 +516,7 @@ tr.clickable:hover td{background:var(--ink)}
     openMint: openMint,  // v1.2 · launch kcc-mint with this seed prefilled as parent
     MODELS: WEBLLM_MODELS,
     PROVIDERS: T3_PROVIDERS,
-    state: STATE,
-  };
+    state: STATE};
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
@@ -595,13 +587,12 @@ const RULES={
   rentArrearsAmberDays:7,
   rentArrearsRedDays:14,
   s8Ground8Days:60,                  // 2 months / 8 weeks for ground 8 rent arrears
-  piMinSingleClaim:100000,           // typical CMP scheme minimum (PropertyMark: £100k+)
+  piMinSingleClaim:100000,           // typical CMP scheme minimum (PropertyMark: TBAk+)
   cmpAnnualScheme:300,               // typical CMP scheme membership annual fee
-  hmrcAmlPerPremise:300,             // HMRC AML supervision fee per premise (~£300)
+  hmrcAmlPerPremise:300,             // HMRC AML supervision fee per premise (~TBA)
   propertyMarkAnnual:280,            // ARLA Propertymark typical annual
   annualInspectionMonths:12,         // CMP independent inspection cadence
-  pencePerPound:100,
-};
+  pencePerPound:100};
 
 const TABS=[
   {id:'dashboard',label:'◊ dashboard'},
@@ -618,8 +609,7 @@ const TABS=[
   {id:'advisers',label:'agents'},
   {id:'firm-pl',label:'firm P&L'},
   {id:'expenses',label:'expenses'},
-  {id:'qa',label:'Q&A'},
-];
+  {id:'qa',label:'Q&A'}];
 
 let state={
   active:'dashboard',
@@ -653,9 +643,7 @@ let state={
     cmpScheme:'PropertyMark',
     cmpSchemeRef:'',
     lastInspectionAt:null,
-    demoLoaded:false,
-  },
-};
+    demoLoaded:false}};
 
 // ─── util ───
 const $=(s,p=document)=>p.querySelector(s);
@@ -962,16 +950,15 @@ function renderExpenses(v){
 // ─── Q&A ───
 const T0_QA=[
   {q:/cmp|client money|protection/i,a:'Client Money Protection (CMP) is mandatory for letting agents in England holding client money (Client Money Protection Schemes for Property Agents (Requirement to Belong to a Scheme etc.) Regulations 2019). Key requirements: belong to an approved scheme (e.g. PropertyMark, RICS, ARLA), daily reconciliation of client account vs records, annual independent audit/inspection, minimum PI cover, client money must be in a designated client account separate from office money.'},
-  {q:/deposit|30.?day|housing act 2004/i,a:'Housing Act 2004: tenancy deposits must be protected in DPS, MyDeposits, or TDS within 30 days of receipt. Prescribed Information (SI 2007/797) must also be served within 30 days. Failure penalty: 1-3× the deposit amount, and the landlord cannot serve a valid Section 21 notice. Tenant Fees Act 2019 caps deposits at 5 weeks\' rent for ASTs where annual rent <£50k.'},
+  {q:/deposit|30.?day|housing act 2004/i,a:'Housing Act 2004: tenancy deposits must be protected in DPS, MyDeposits, or TDS within 30 days of receipt. Prescribed Information (SI 2007/797) must also be served within 30 days. Failure penalty: 1-3× the deposit amount, and the landlord cannot serve a valid Section 21 notice. Tenant Fees Act 2019 caps deposits at 5 weeks\' rent for ASTs where annual rent <TBAk.'},
   {q:/rent.?arrears|ground.?8|s8/i,a:'Ground 8 (Housing Act 1988, Sch.2): mandatory ground for possession where at least 2 months\' rent is unpaid at the date of notice AND at the hearing. Notice period: 2 weeks minimum. Pre-action protocol: contact tenant, offer payment plans, signpost to debt advice. Section 8 notice must specify the ground(s) and particulars.'},
   {q:/agency.?fee|commission|sole|multi/i,a:'Estate agency commission structures: sole agency (typically 1-1.5% + VAT), multi-agency (2-3% + VAT), online/hybrid (fixed fee). Commission triggers on exchange of contracts (not completion). EA 1979 s.18 requires clear explanation of sole agency / sole selling rights / multi-agency terms. Agent must disclose personal interests.'},
-  {q:/vat|threshold|registration/i,a:'VAT registration threshold: £90,000 (2025-26). Estate agents must register if taxable turnover exceeds threshold in any rolling 12-month period. Agency fees and sales commissions are standard-rated (20%). Residential rent is exempt. CMP client money is not turnover. Management fees charged to landlords are standard-rated.'},
+  {q:/vat|threshold|registration/i,a:'VAT registration threshold: TBA (2025-26). Estate agents must register if taxable turnover exceeds threshold in any rolling 12-month period. Agency fees and sales commissions are standard-rated (20%). Residential rent is exempt. CMP client money is not turnover. Management fees charged to landlords are standard-rated.'},
   {q:/landlord.?statement|disbursement/i,a:'Monthly landlord statement should show: rent collected, agency management fee (deducted), maintenance costs (deducted from client account with landlord authority), VAT on fees, net amount remitted to landlord. CMP rules require: payments from client account only for authorised purposes, clear records, no commingling with office funds.'},
-  {q:/pi|insurance|professional.?indemnity/i,a:'PI (Professional Indemnity) insurance is required for CMP scheme membership and PropertyMark/ARLA membership. Typical minimum cover: £100k per single claim. CMP schemes require the agent to maintain adequate PI. RICS firms need minimum £500k. Check your scheme\'s specific requirements. PI covers negligence, errors, and omissions.'},
-  {q:/redress|tpo|prs|ombudsman/i,a:'Property redress scheme membership is mandatory (Enterprise & Regulatory Reform Act 2013). Approved schemes: Property Ombudsman (TPO) and Property Redress Scheme (PRS). Penalty for non-membership: up to £5,000. Both lettings and sales activities require membership. Complaints must be handled via internal complaints procedure first, then referred to the scheme.'},
-  {q:/aml|money.?laundering|mlr/i,a:'MLR 2017 applies to estate agents in property transactions. CDD required for all parties. High-value properties and cash transactions are higher risk. HMRC is the supervisory authority (not FCA). Agents must: register with HMRC, conduct risk assessments, apply CDD, report suspicious activity (SAR to NCA), keep records for 5 years. Annual supervision fee ~£300 per premise.'},
-  {q:/inspection|inventory|check.?out/i,a:'Inventory and inspection best practice: detailed check-in inventory (room-by-room condition, meter readings, photos), periodic inspections (typically quarterly), check-out inventory. For deposit disputes: inventory is primary evidence. ADR schemes (DPS/MyDeposits/TDS) rely heavily on the quality of the inventory. Mid-tenancy inspections require 24 hours\' written notice.'},
-];
+  {q:/pi|insurance|professional.?indemnity/i,a:'PI (Professional Indemnity) insurance is required for CMP scheme membership and PropertyMark/ARLA membership. Typical minimum cover: TBAk per single claim. CMP schemes require the agent to maintain adequate PI. RICS firms need minimum TBAk. Check your scheme\'s specific requirements. PI covers negligence, errors, and omissions.'},
+  {q:/redress|tpo|prs|ombudsman/i,a:'Property redress scheme membership is mandatory (Enterprise & Regulatory Reform Act 2013). Approved schemes: Property Ombudsman (TPO) and Property Redress Scheme (PRS). Penalty for non-membership: up to TBA. Both lettings and sales activities require membership. Complaints must be handled via internal complaints procedure first, then referred to the scheme.'},
+  {q:/aml|money.?laundering|mlr/i,a:'MLR 2017 applies to estate agents in property transactions. CDD required for all parties. High-value properties and cash transactions are higher risk. HMRC is the supervisory authority (not FCA). Agents must: register with HMRC, conduct risk assessments, apply CDD, report suspicious activity (SAR to NCA), keep records for 5 years. Annual supervision fee ~TBA per premise.'},
+  {q:/inspection|inventory|check.?out/i,a:'Inventory and inspection best practice: detailed check-in inventory (room-by-room condition, meter readings, photos), periodic inspections (typically quarterly), check-out inventory. For deposit disputes: inventory is primary evidence. ADR schemes (DPS/MyDeposits/TDS) rely heavily on the quality of the inventory. Mid-tenancy inspections require 24 hours\' written notice.'}];
 function askT0(q){for(const r of T0_QA){if(r.q.test(q))return {answer:r.a,source:'T0 · UK estate/letting rules'};}return null}
 async function askT3(q){if(!state.settings.anthropicKey)return null;try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'x-api-key':state.settings.anthropicKey,'anthropic-version':'2023-06-01','content-type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,messages:[{role:'user',content:'You are a UK estate & letting agent accounting expert. CMP, deposits, rent, commission, VAT. Concise answer.\n\n'+q}]})});if(!res.ok)return null;const j=await res.json();return {answer:j.content?.[0]?.text,source:'T3 · Anthropic'}}catch(e){return null}}
 
