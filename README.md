@@ -38,4 +38,4 @@ Run your estate or letting agency's finances from one HTML file. 15 tabs cover C
 
 ## Licence
 
-MIT · Simon Gant · prime 911 · ◊·κ=1.
+MIT · Simon Gant.
